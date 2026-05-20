@@ -19,11 +19,11 @@ npm install
 
 npx playwright install
 
-##▶️ Como executar os testes
+## ▶️ Como executar os testes
 
 npm run ci
 
-##📁 Estrutura
+## 📁 Estrutura
 
 src/Example → testes principais
 src/support → pages e elements
