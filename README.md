@@ -16,6 +16,7 @@ https://www.criciuma.com.br/
 ## 🚀 Como instalar
 
 npm install
+
 npx playwright install
 
 ##▶️ Como executar os testes
