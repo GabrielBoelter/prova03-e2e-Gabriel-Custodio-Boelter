@@ -1,29 +1,30 @@
-import { PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
-  testDir: 'src/scenarios',
-  timeout: 120000,
-  retries: 0,
+export default defineConfig({
+  testDir: 'src/Example',
+
+  timeout: 60000,
+
+  retries: 1,
+
+  fullyParallel: true,
+
+  reporter: [['html', { outputFolder: 'artifacts/report' }], ['list']],
+
   use: {
-    trace: 'on',
-    locale: 'pt-BR',
+    baseURL: 'https://www.criciuma.com.br',
+
     headless: true,
-    viewport: { width: 1280, height: 720 },
-    ignoreHTTPSErrors: true,
-    screenshot: 'on',
-    video: 'off'
-  },
-  expect: {
-    timeout: 30000
-  },
-  reporter: [
-    [
-      'html',
-      {
-        outputFolder: 'artifacts/report',
-        open: 'never'
-      }
-    ]
-  ]
-};
-export default config;
+
+    actionTimeout: 15000, 
+
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure',
+
+    viewport: {
+      width: 1440,
+      height: 900
+    }
+  }
+});
